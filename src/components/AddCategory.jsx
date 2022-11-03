@@ -1,8 +1,9 @@
 import { useState } from "react"
+import { PropTypes } from 'prop-types';
 
 export const AddCategory = ({ emitAddCategory }) => {
 
-    const [inputValue, setInputValue] = useState('Example')
+    const [inputValue, setInputValue] = useState('')
 
     const onInputChange = (event) => {
         setInputValue(event.target.value)
@@ -19,7 +20,7 @@ export const AddCategory = ({ emitAddCategory }) => {
 
     return (
         <>
-            <form onSubmit={ onSubmit }>
+            <form onSubmit={ onSubmit } aria-label="form-test" >
                 <input
                     type="text"
                     placeholder="Buscar gifs"
@@ -29,4 +30,8 @@ export const AddCategory = ({ emitAddCategory }) => {
             </form>
         </>
     )
+}
+
+AddCategory.propTypes = {
+    emitAddCategory: PropTypes.func.isRequired
 }
